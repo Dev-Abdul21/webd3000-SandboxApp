@@ -6,3 +6,82 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+@{
+    string message = "Welcome to Razor!!!";
+
+    var count = 5;
+
+    // List<string> names = new List<string>();
+    // names.Add("Mike");
+    // names.Add("Joe");
+    // names.Add("Jim");
+
+    // var pokeList = new List<string>
+    // {
+    //     "charazard",
+    //     "thounder"
+    // };
+}
+
+<div class="text-center">
+    <h2>
+        @message
+    </h2>
+
+    <hr />
+
+    @if(count > 10)
+    {
+        <p>
+            Count is greater than 10. Value of count: @count.
+        </p>
+    }
+    else
+    {
+        <p>
+            Count is less than 10. Value of count: @count
+        </p>
+    }
+</div>
+
+@{
+    List<string> pokeNames = new List<string>();
+    pokeNames.Add("charazard");
+    pokeNames.Add("sparky");
+    pokeNames.Add("zappy");
+    pokeNames.Add("thunder");
+    pokeNames.Add("kurin");
+    pokeNames.Add("pikachu");
+    pokeNames.Add("pika pika");
+    pokeNames.Add("electra");
+    pokeNames.Add("pikasso");
+    pokeNames.Add("volt");
+
+    var pikachuImg = "pikachu.png";
+}
+
+<div>
+    <h2>List of Pokemon Characters</h2>
+
+    <ul>
+        @foreach (string name in pokeNames)
+        {            
+            @if (name == "pikachu")
+            {
+                <li class="fw-bold">
+                    @name <br />
+                    <img src="/images/@pikachuImg" alt="Pikachu character" class="thumbnail" />
+                </li>
+            }
+            else
+            {
+                <li>
+                    @name
+                </li>
+            }            
+        }
+    </ul>
+</div>
+
+
